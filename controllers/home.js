@@ -20,6 +20,7 @@ module.exports.getHome = async (req, res, next) => {
     // }
     res.render('index', {
       products: sortedProducts,
+      user:req.user
     })
     } catch (err) {
       next(err)

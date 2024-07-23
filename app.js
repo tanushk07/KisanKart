@@ -1,3 +1,4 @@
+
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -8,6 +9,10 @@ const users = require("./models/kisan");
 const mongoose = require("mongoose");
 const products = require("./models/products");
 const seller = require("./models/seller");
+
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+
 require("dotenv").config();
 const passport = require("passport");
 app.use(
@@ -25,6 +30,7 @@ require("./authentication/passport");
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 app.set("view engine", "hbs");
 app.use(
@@ -49,6 +55,9 @@ app.use(
 // })
 
 const homerouter = require("./routes/home");
+
+
+const krishiRouter = require("./routes/krishi");
 
 app.get("/user/login", (req, res, next) => {
   if (req.user) return res.redirect("/");
@@ -111,6 +120,7 @@ const adminRouter = require("./routes/admin");
 app.use("/", homerouter);
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
+app.use("/krishi", krishiRouter);
 
 /*app.get("/", (req, res) => {
   const { name } = req.query;
@@ -173,7 +183,7 @@ app.post("/search/product", async (req, res) => {
   const prod = await products.find({
     category: { $regex: searchRegex },
   });
-  res.render("users/products-list", { products: prod });
+  res.render("users/products-list", { products: prod, user: req.user });
 });
 app.get("/seller", async (req, res) => {
   res.render("./admin/Joinasseller");

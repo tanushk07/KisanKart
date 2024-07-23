@@ -12,6 +12,8 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+      @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
       * {
         margin: 0px;
       }
@@ -320,7 +322,7 @@
         font-weight: 600;
         font-family: 'Anek Devanagari';
       }
-      
+
       .pname {
         font-size: 1.5rem;
       }
@@ -329,9 +331,11 @@
         font-weight: 750;
         font-size: 1.45rem;
       }
-      .vertical{
+
+      .vertical {
         height: 145%;
       }
+
       .endline {
         text-align: center;
         color: green;
@@ -341,11 +345,11 @@
       }
 
       .viewmore {
-        color:black;
+        color: black;
         font-size: 1.2rem;
         padding: 15px 10px;
         font-weight: 700;
-        font-family: 'Roboto slab',sans-serif;
+        font-family: 'Roboto slab', sans-serif;
       }
 
       .viewmore:hover {
@@ -375,10 +379,59 @@
         font-family: 'Roboto slab', sans-serif;
         padding: 5px 0px;
       }
+
+      .krishi {
+        font-family: 'Josefin sans', sans-serif;
+        background: linear-gradient(135deg, #000000, #222222, #444444, #343333);
+        color: white;
+        background-color: black;
+        height: 4vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 0.87rem;
+        font-weight: 500;
+        {{!-- transition: font-size 0.3s ease-in-out; --}}
+      }
+
+      @keyframes slideLeftToRight {
+        0% {
+          transform: translateX(-180%);
+        }
+
+        100% {
+          transform: translateX(180%);
+          /* End off-screen to the right */
+        }
+      }
+      .k2{  
+        animation: slideLeftToRight 14s linear infinite;
+      }
+
+      {{!-- .krishi:hover {
+        color: white;
+        border: none;
+        margin: auto;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+      } --}}
+
     </style>
   </head>
 
   <body>
+    <a href="/krishi/crop">
+      <div class="krishi">
+        <div class="k2">🌾 <b>KrishiKalyan</b>: AI-powered crop assessment and irrigation insights for better farming.
+          🌱</div>
+      </div>
+    </a>
+
     <div class="navbar border">
       <a href="/">
         <div class="kklogo"></div>
@@ -411,7 +464,17 @@
               </a>
             </form>
           </div>
+          {{#if user}}
+          <div class="logo size2 border">
+            <a href="/user/logout">
+              <div class="logodiv border userlogo">
 
+                <i class="fa-solid fa-user" style="font-size: 1.65vw"></i>
+              </div>
+              <div class="logotext border">Logout</div>
+            </a>
+          </div>
+          {{else}}
           <div class="logo size2 border">
             <a href="/user/login">
               <div class="logodiv border userlogo">
@@ -422,6 +485,7 @@
             </a>
           </div>
 
+          {{/if}}
 
           <div class="logo size2 border">
             <a href="../public/index.html">
@@ -431,6 +495,7 @@
               <div class="logotext border">Join</div>
             </a>
           </div>
+
           <div class="logo border size2">
             <div class="logodiv border">
               <a href="/user/cart/show"><i class="fa-solid fa-cart-shopping" style="font-size: 1.8vw"></i>
@@ -530,20 +595,24 @@
     <script src="../toTop.js"></script>
 
 
-   <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-  <script>
-      let viewmore=document.querySelectorAll('.viewmore')
-      viewmore.forEach(Element=>{
-        Element.addEventListener('click',(ev)=>{
-        console.log("hey")
-        let key=ev.target.closest('.category').querySelector('.key')
-        let txt=key.innerText.trim()
-        window.location.href = `/product/search/${txt}`;
-        {{!-- axios.get(`/product/search/${txt}`).then((data)=>{
-          console.log(data.data)
-        }).catch((err)=>{console.log(err)}) --}}
-      })
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+      let viewmore = document.querySelectorAll('.viewmore')
+      viewmore.forEach(Element => {
+        Element.addEventListener('click', (ev) => {
+          console.log("hey")
+          let key = ev.target.closest('.category').querySelector('.key')
+          let txt = key.innerText.trim()
+          window.location.href = `/product/search/${txt}`;
+          {
+            {
+              !--axios.get(`/product/search/${txt}`).then((data) => {
+                console.log(data.data)
+              }).catch((err) => { console.log(err) }) --}
+          }
+        })
       })
     </script>
   </body>
+
 </html>
