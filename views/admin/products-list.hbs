@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
       integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="../../public/totop.css" />
     <link rel="stylesheet" href="../../public/endpage.css" />
     <link rel="stylesheet" href="../../public/usernav.css">
     <title>Document</title>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<style>
+    <style>
       @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
       * {
@@ -31,12 +31,13 @@
         font-family: 'Anek Devanagari',
           sans-serif;
       }
+
       .product_card {
         width: 300px;
         height: 420px;
         margin: 20px;
         overflow: hidden;
-      
+
         white-space: nowrap;
 
         img {
@@ -93,7 +94,8 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
       }
-      h2{
+
+      h2 {
         margin-top: 4px;
       }
     </style>
@@ -107,29 +109,29 @@
     <div class="product">
       {{#each products as |p|}}
       <a href="{{p._id}}">
-      <div class="product_card" data-aos="fade-up">
-        <img src="{{p.imageUrl}}" data-aos="zoom-in" /><br />
-        <div class="pdescription">
-          <h2>
-            {{p.name}}
-          </h2>
-          <p id="pd"> {{p.description}}</p>
-          <span id="price">&#8377;
-            {{p.price}}
+        <div class="product_card" data-aos="fade-up">
+          <img src="{{p.imageUrl}}" data-aos="zoom-in" /><br />
+          <div class="pdescription">
+            <h2>
+              {{p.name}}
+            </h2>
+            <p id="pd"> {{p.description}}</p>
+            <span id="price">&#8377;
+              {{p.price}}
 
-          </span><br />
-          <h4>40% OFF</h4>
-          {{!-- {{#if p.reviews}}
-          <h5>Reviews</h5>
-          <ul>
-            {{#each p.reviews as |r|}}
-            <li>{{r.details}}</li>
-            {{/each}}
-          </ul>
-          {{/if}} --}}
-          <h3><a href="{{p._id}}">GET Info</a></h3>
+            </span><br />
+            <h4>40% OFF</h4>
+            {{!-- {{#if p.reviews}}
+            <h5>Reviews</h5>
+            <ul>
+              {{#each p.reviews as |r|}}
+              <li>{{r.details}}</li>
+              {{/each}}
+            </ul>
+            {{/if}} --}}
+            <h3><a href="{{p._id}}">GET Info</a></h3>
+          </div>
         </div>
-      </div>
       </a>
       {{/each}}
 
@@ -150,4 +152,5 @@
 
     {{>endpage}}
   </body>
+
 </html>

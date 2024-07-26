@@ -1,21 +1,23 @@
 <html lang='en'>
+
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Login Form</title>
     <link rel='stylesheet' href='../logincss.css' />
-    <link
-      rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
       integrity='sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=='
-      crossorigin='anonymous'
-      referrerpolicy='no-referrer'
-    />
-    <link
-      href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-      rel='stylesheet'
-    />
+      crossorigin='anonymous' referrerpolicy='no-referrer' />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
+
   <body>
     <div class='login-page'>
       <form action='/seller' method='post'>
@@ -25,46 +27,33 @@
           <i class='bx bxs-user'></i>
         </div>
         <div class='input-box eye'>
-          <input
-            type='text'
-            placeholder='Bank Name'
-            name='bank'
-            id='bank'
-            required
-          />
+          <input type='text' placeholder='Bank Name' name='bank' id='bank' required />
           <i class='fa-solid fa-eye-slash' id='eyeicon'></i>
         </div>
         <div class='input-box eye'>
-          <input
-            type='text'
-            placeholder='Account Number'
-            name='AC_no'
-            id='Ac_no'
-            required
-          />
+          <input type='text' placeholder='Account Number' name='AC_no' id='Ac_no' required />
           <i class='fa-solid fa-eye-slash' id='eyeicon'></i>
         </div>
 
         <div class='input-box eye'>
-          <input
-            type='text'
-            placeholder='Bank Branch'
-            name='bank_branch'
-            id='bank_branch'
-            required
-          />
+          <input type='text' placeholder='Bank Branch' name='bank_branch' id='bank_branch' required />
           <i class='fa-solid fa-eye-slash' id='eyeicon'></i>
         </div>
         <button type='submit' class='btn'>Register</button>
       </form>
     </div>
-    {{!-- <script>
+    {{!--
+    <script>
       let eyeicon = document.getElementById("eyeicon"); let password =
-      document.getElementById("password"); eyeicon.addEventListener("click", ()
-      => { console.log("clicked"); if (password.type == "password") {
-      password.type = "text"; eyeicon.classList = "fa-solid fa-eye"; } else {
-      password.type = "password"; eyeicon.classList = "fa-solid fa-eye-slash"; }
-      });
+        document.getElementById("password"); eyeicon.addEventListener("click", ()
+          => {
+            console.log("clicked"); if (password.type == "password") {
+              password.type = "text"; eyeicon.classList = "fa-solid fa-eye";
+            } else {
+              password.type = "password"; eyeicon.classList = "fa-solid fa-eye-slash";
+            }
+        });
     </script> --}}
   </body>
+
 </html>

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <style>
       * {
         box-sizing: border-box;
         margin: 0;
       }
+
       body {
         display: flex;
         align-items: center;
@@ -21,6 +28,7 @@
         background-image: url("image.png");
         background-size: cover;
       }
+
       .logincard {
         border: 1px solid;
         width: 80vw;
@@ -30,11 +38,13 @@
         border-radius: 10vh;
         box-shadow: 20px 40px 40px rgba(0, 0, 0, 0.5);
       }
+
       .topdiv {
         border-bottom: 1px solid black;
         margin-left: 3vw;
         font-weight: 100;
       }
+
       .right {
         width: 50vw;
         display: flex;
@@ -45,6 +55,7 @@
         border-top-right-radius: 10vh;
         border-bottom-right-radius: 10vh;
       }
+
       .left {
         width: 30vw;
         background-image: url("image2.png");
@@ -52,12 +63,14 @@
         border-top-left-radius: 10vh;
         border-bottom-left-radius: 10vh;
       }
+
       .overlay {
         height: 100%;
         backdrop-filter: blur(2px);
         border-top-left-radius: 10vh;
         border-bottom-left-radius: 10vh;
       }
+
       .boxesdiv {
         display: flex;
         flex-wrap: wrap;
@@ -67,6 +80,7 @@
         align-items: center;
         margin-right: 2vw;
       }
+
       .inp,
       .roleselect {
         width: 20vw;
@@ -75,6 +89,7 @@
         margin-bottom: 2vh;
         border-radius: 10px;
       }
+
       .submitbtn {
         border: none;
         height: 6vh;
@@ -84,12 +99,14 @@
         font-weight: bold;
         background-color: lightgreen;
       }
+
       .containers {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 12vh;
       }
+
       .gender {
         display: flex;
         flex-direction: column;
@@ -98,6 +115,7 @@
         padding-bottom: 1vh;
         width: 50vw;
       }
+
       .genderoptions {
         display: flex;
 
@@ -105,21 +123,27 @@
         justify-content: space-between;
         padding-right: 20%;
       }
+
       .Gender_text {
         margin-left: 3vw;
       }
+
       .gender_checkboxes {
         border-radius: 50%;
       }
+
       .genders {
         border-radius: 50%;
       }
     </style>
   </head>
+
   <body>
     <form class="b" action="/register" method="post">
       <div class="logincard">
-        <div class="left"><div class="overlay"></div></div>
+        <div class="left">
+          <div class="overlay"></div>
+        </div>
         <div class="right">
           <div class="topdiv">
             <h1>Register Here</h1>
@@ -128,45 +152,25 @@
             <div class="containers">
               <div class="name_text t">Full name</div>
               <div class="namebox">
-                <input
-                  type="text"
-                  name="username"
-                  class="inp Username"
-                  placeholder="name"
-                />
+                <input type="text" name="username" class="inp Username" placeholder="name" />
               </div>
             </div>
             <div class="containers">
               <div class="email_text t">Email</div>
               <div class="emailbox">
-                <input
-                  type="text"
-                  name="Email"
-                  class="inp email"
-                  placeholder=" Email-ID"
-                />
+                <input type="text" name="Email" class="inp email" placeholder=" Email-ID" />
               </div>
             </div>
             <div class="containers">
               <div class="country_text t">Country</div>
               <div class="countrybox">
-                <input
-                  type="text"
-                  name="country"
-                  class="inp country"
-                  placeholder="Country"
-                />
+                <input type="text" name="country" class="inp country" placeholder="Country" />
               </div>
             </div>
             <div class="containers">
               <div class="password_text t">Password</div>
               <div class="passwordbox">
-                <input
-                  type="password"
-                  class="inp passwd"
-                  name="password"
-                  placeholder=" password"
-                />
+                <input type="password" class="inp passwd" name="password" placeholder=" password" />
               </div>
             </div>
             <div class="containers">
@@ -185,34 +189,19 @@
             <div class="containers">
               <div class="phoneno_text t">Phone Number</div>
               <div class="phonenobox">
-                <input
-                  type="text"
-                  class="inp phone"
-                  name="phone"
-                  placeholder="Phone number"
-                />
+                <input type="text" class="inp phone" name="phone" placeholder="Phone number" />
               </div>
             </div>
             <div class="containers">
               <div class="city_text t">City</div>
               <div class="citybox">
-                <input
-                  type="text"
-                  class="inp city"
-                  name="city"
-                  placeholder="City"
-                />
+                <input type="text" class="inp city" name="city" placeholder="City" />
               </div>
             </div>
             <div class="containers">
               <div class="confirm_password_text t">Address</div>
               <div class="confirm_passwordbox">
-                <input
-                  type="text"
-                  class="inp confpasswd"
-                  name="address"
-                  placeholder="Enter your address"
-                />
+                <input type="text" class="inp confpasswd" name="address" placeholder="Enter your address" />
               </div>
             </div>
           </div>
@@ -220,32 +209,16 @@
             <div class="Gender_text">Gender</div>
             <div class="genderoptions">
               <div class="genders">
-                <input
-                  type="checkbox"
-                  name="male"
-                  class="gender_checkboxes"
-                />Male
+                <input type="checkbox" name="male" class="gender_checkboxes" />Male
               </div>
               <div class="genders">
-                <input
-                  type="checkbox"
-                  name="female"
-                  class="gender_checkboxes"
-                />Female
+                <input type="checkbox" name="female" class="gender_checkboxes" />Female
               </div>
               <div class="genders">
-                <input
-                  type="checkbox"
-                  name="other"
-                  class="gender_checkboxes"
-                />Others
+                <input type="checkbox" name="other" class="gender_checkboxes" />Others
               </div>
               <div class="genders">
-                <input
-                  type="checkbox"
-                  name="not_to_say"
-                  class="gender_checkboxes"
-                />Rather Not To Say
+                <input type="checkbox" name="not_to_say" class="gender_checkboxes" />Rather Not To Say
               </div>
             </div>
           </div>
@@ -254,4 +227,5 @@
       </div>
     </form>
   </body>
+
 </html>
