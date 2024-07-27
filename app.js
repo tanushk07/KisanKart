@@ -133,12 +133,6 @@ app.post("/register", async (req, res) => {
   // res.send(pswd);
 
   res.render("index", { data: ar });
-  // if (u) {
-  //   console.log("Registered as a user");
-  // } else if (a) {
-  //   console.log("Registered as an admin");
-  // }
-
   await users.create({
     username,
     password,

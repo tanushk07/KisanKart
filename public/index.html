@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <script type="text/javascript">
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
       }
     </script>
-    <script type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
     <style>
       * {
         box-sizing: border-box;
@@ -21,11 +28,12 @@
       }
 
       body {
+        font-family: Arial, sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-image: url("image.png");
+        background-image: url(page_bg_blur03.jpg);
         background-size: cover;
       }
 
@@ -54,6 +62,7 @@
         backdrop-filter: blur(4px);
         border-top-right-radius: 10vh;
         border-bottom-right-radius: 10vh;
+        background-color: rgb(179, 232, 127);
       }
 
       .left {
@@ -97,7 +106,8 @@
         border-radius: 3vw;
         font-size: larger;
         font-weight: bold;
-        background-color: lightgreen;
+        color:white;
+        background-color: rgb(0, 0, 0);
       }
 
       .containers {
@@ -152,44 +162,79 @@
             <div class="containers">
               <div class="name_text t">Full name</div>
               <div class="namebox">
-                <input type="text" name="username" class="inp Username" placeholder="name" />
+                <input
+                  type="text"
+                  name="username"
+                  class="inp Username"
+                  placeholder="name"
+                />
               </div>
             </div>
             <div class="containers">
               <div class="email_text t">Email</div>
               <div class="emailbox">
-                <input type="text" name="Email" class="inp email" placeholder=" Email-ID" />
+                <input
+                  type="text"
+                  name="Email"
+                  class="inp email"
+                  placeholder=" Email-ID"
+                />
               </div>
             </div>
             <div class="containers">
               <div class="country_text t">Country</div>
               <div class="countrybox">
-                <input type="text" name="country" class="inp country" placeholder="Country" />
+                <input
+                  type="text"
+                  name="country"
+                  class="inp country"
+                  placeholder="Country"
+                />
               </div>
             </div>
             <div class="containers">
               <div class="password_text t">Password</div>
               <div class="passwordbox">
-                <input type="password" class="inp passwd" name="password" placeholder=" password" />
+                <input
+                  type="password"
+                  class="inp passwd"
+                  name="password"
+                  placeholder=" password"
+                />
               </div>
             </div>
-            
+
             <div class="containers">
               <div class="phoneno_text t">Phone Number</div>
               <div class="phonenobox">
-                <input type="text" class="inp phone" name="phone" placeholder="Phone number" />
+                <input
+                  type="text"
+                  class="inp phone"
+                  name="phone"
+                  placeholder="Phone number"
+                />
               </div>
             </div>
             <div class="containers">
               <div class="city_text t">City</div>
               <div class="citybox">
-                <input type="text" class="inp city" name="city" placeholder="City" />
+                <input
+                  type="text"
+                  class="inp city"
+                  name="city"
+                  placeholder="City"
+                />
               </div>
             </div>
             <div class="containers">
               <div class="confirm_password_text t">Address</div>
               <div class="confirm_passwordbox">
-                <input type="text" class="inp confpasswd" name="address" placeholder="Enter your address" />
+                <input
+                  type="text"
+                  class="inp confpasswd"
+                  name="address"
+                  placeholder="Enter your address"
+                />
               </div>
             </div>
           </div>
@@ -197,16 +242,32 @@
             <div class="Gender_text">Gender</div>
             <div class="genderoptions">
               <div class="genders">
-                <input type="checkbox" name="male" class="gender_checkboxes" />Male
+                <input
+                  type="checkbox"
+                  name="male"
+                  class="gender_checkboxes"
+                />Male
               </div>
               <div class="genders">
-                <input type="checkbox" name="female" class="gender_checkboxes" />Female
+                <input
+                  type="checkbox"
+                  name="female"
+                  class="gender_checkboxes"
+                />Female
               </div>
               <div class="genders">
-                <input type="checkbox" name="other" class="gender_checkboxes" />Others
+                <input
+                  type="checkbox"
+                  name="other"
+                  class="gender_checkboxes"
+                />Others
               </div>
               <div class="genders">
-                <input type="checkbox" name="not_to_say" class="gender_checkboxes" />Rather Not To Say
+                <input
+                  type="checkbox"
+                  name="not_to_say"
+                  class="gender_checkboxes"
+                />Rather Not To Say
               </div>
             </div>
           </div>
@@ -215,5 +276,4 @@
       </div>
     </form>
   </body>
-
 </html>
