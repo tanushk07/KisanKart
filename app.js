@@ -131,8 +131,6 @@ app.post("/register", async (req, res) => {
   const { password, username, phone, Email, city, country, address } = req.body;
   let ar = [username, password, phone, Email, city, country, address];
   // res.send(pswd);
-
-  res.render("index", { data: ar });
   await users.create({
     username,
     password,
@@ -144,6 +142,7 @@ app.post("/register", async (req, res) => {
   });
   let f = await users.find({});
   console.log(f);
+  res.redirect("/");
 });
 /*app.get("/abt", (req, res) => {
   res.send("Hey mofo");
