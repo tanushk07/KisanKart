@@ -456,17 +456,17 @@
               </div>
               <div class="currentlocation">
                 <div class="currentLocationtext" style="font-size: 0.9rem">
-                  Deliver to Aryan
+                  Deliver to {{user.username}}
                 </div>
                 <div class="currentlocationlive" style="font-size: 1.2rem;font-weight:bold;">
-                  New Delhi 110089
+                  {{user.address}}
                 </div>
               </div>
             </div>
           </a>
           <div class="searchbar border">
             <form action="/search/product" class="searchbar" method="post">
-              <input name="search" type="text" placeholder="Search..." id="searchInput"
+              <input name="search" type="text" placeholder="Search in categories..." id="searchInput"
                 style="border: none; outline: none; text-indent: 15px" />
               <a href="">
                 <button class="searchbutton" type="submit">

@@ -8,7 +8,7 @@ module.exports.getProductsAll = async (req, res, next) => {
     let all_products = await products.find({});
     res.render("users/products-list", {
       products: all_products,
-      user: req.user._id,
+      user: req.user,
     });
     console.log(req.user);
   } catch (err) {
@@ -25,7 +25,7 @@ module.exports.getProductById = async (req, res, next) => {
     // console.log(product)
     res.render("users/product-details", {
       product: product,
-      user: req.user._id,
+      user: req.user,
     });
   } catch (err) {
     next(err);
@@ -88,7 +88,7 @@ module.exports.getCartShow = async (req, res, next) => {
             totalPrice: 0,
             cartQuantity: 0,
             address: req.user.address,
-            user: req.user._id,
+            user: req.user,
         });
     }
     
@@ -103,7 +103,7 @@ module.exports.getCartShow = async (req, res, next) => {
       totalPrice,
       cartQuantity: cart_obj.cartitems.length,
       address: req.user.address,
-      user: req.user._id,
+      user: req.user,
     });
   } catch (err) {
     next(err);
