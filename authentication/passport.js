@@ -22,6 +22,8 @@ passport.use(new GoogleStrategy({
                     googleAccessToken:accessToken,
                     googleImg:profile.photos[0].value
 
+
+                    
                 })
             }
             return cb(null,user)
