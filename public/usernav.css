@@ -24,7 +24,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../../KISAN_KART.png');
+  background-image: url("../images/KISAN_KART.png");
 }
 .uppercontent {
   box-sizing: border-box;

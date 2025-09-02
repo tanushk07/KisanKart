@@ -1,154 +1,87 @@
-<!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Krishi Kalyan</title>
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript"
-            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background: url("../public/crop.jpeg") no-repeat center center fixed;
-                background-size: cover;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krishi Kalyan</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript">
+      function googleTranslateElementInit() { new
+      google.translate.TranslateElement({ pageLanguage: 'en' },
+      'google_translate_element'); }
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <style>
+      body { font-family: Arial, sans-serif; background:
+      url("../public/crop.jpeg") no-repeat center center fixed; background-size:
+      cover; margin: 0; padding: 0; display: flex; justify-content: center;
+      align-items: center; height: 100vh; } .container { background-color:
+      rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 15px; box-shadow:
+      0 0 20px rgba(0, 0, 0, 0.2); width: 90%; max-width: 700px; text-align:
+      center; height: auto; min-height: 500px; box-sizing: border-box; } h1 {
+      color: #4caf50; margin-bottom: 30px; font-size: 1.8em; } form { display:
+      flex; flex-direction: column; align-items: center; width: 100%; }
+      .form-group { display: flex; flex-direction: column; width: 100%;
+      margin-bottom: 20px; } label { text-align: left; color: #333; font-size:
+      1.3em; margin-bottom: 10px; } select, input[type="text"] { width: 100%;
+      padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;
+      box-sizing: border-box; } button { margin-top: 20px; padding: 15px 20px;
+      background-color: #4caf50; color: white; border: none; border-radius: 5px;
+      cursor: pointer; width: 100%; font-size: 1.2em; box-sizing: border-box; }
+      button:hover { background-color: #45a049; } @media (min-width: 768px) {
+      .form-group { flex-direction: row; align-items: center; } label { flex: 1;
+      text-align: right; margin-right: 10px; margin-bottom: 0; } select,
+      input[type="text"] { flex: 2; } button { max-width: 600px; } }
+    </style>
 
-            .container {
-                background-color: rgba(255, 255, 255, 0.9);
-                padding: 40px;
-                border-radius: 15px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                width: 90%;
-                max-width: 700px;
-                text-align: center;
-                height: auto;
-                min-height: 500px;
-                box-sizing: border-box;
-            }
+  </head>
 
-            h1 {
-                color: #4caf50;
-                margin-bottom: 30px;
-                font-size: 1.8em;
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-
-            .form-group {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            label {
-                text-align: left;
-                color: #333;
-                font-size: 1.3em;
-                margin-bottom: 10px;
-            }
-
-            select,
-            input[type="text"] {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 1em;
-                box-sizing: border-box;
-            }
-
-            button {
-                margin-top: 20px;
-                padding: 15px 20px;
-                background-color: #4caf50;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                width: 100%;
-                font-size: 1.2em;
-                box-sizing: border-box;
-            }
-
-            button:hover {
-                background-color: #45a049;
-            }
-
-            @media (min-width: 768px) {
-                .form-group {
-                    flex-direction: row;
-                    align-items: center;
-                }
-
-                label {
-                    flex: 1;
-                    text-align: right;
-                    margin-right: 10px;
-                    margin-bottom: 0;
-                }
-
-                select,
-                input[type="text"] {
-                    flex: 2;
-                }
-
-                button {
-                    max-width: 600px;
-                }
-            }
-        </style>
-
-    </head>
-
-    <body>
-        <div id="google_translate_element" style="position: absolute; left:87vw; top:0.1vh;height:2vh"></div>
-        <div class="container">
-            <h1>Krishi Kalyan</h1>
-            <form method="post" action="/krishi/crop">
-                <div class="form-group">
-                    <label for="soil">Soil Type:</label>
-                    <select id="soil" name="soil">
-                        <option value="clay">Clay</option>
-                        <option value="sandy">Sandy</option>
-                        <option value="silty">Silty</option>
-                        <option value="peaty">Peaty</option>
-                        <option value="chalky">Chalky</option>
-                        <option value="loamy">Loamy</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="temperature">Temperature Range:</label>
-                    <input type="text" id="temperature" name="temperature" placeholder="e.g. 20-30°C">
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Area/Location:</label>
-                    <input type="text" id="location" name="location" placeholder="Enter your location">
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
+  <body>
+    <div
+      id="google_translate_element"
+      style="position: absolute; left:87vw; top:0.1vh;height:2vh"
+    ></div>
+    <div class="container">
+      <h1>Krishi Kalyan</h1>
+      <form method="post" action="/krishi/crop">
+        <div class="form-group">
+          <label for="soil">Soil Type:</label>
+          <select id="soil" name="soil">
+            <option value="clay">Clay</option>
+            <option value="sandy">Sandy</option>
+            <option value="silty">Silty</option>
+            <option value="peaty">Peaty</option>
+            <option value="chalky">Chalky</option>
+            <option value="loamy">Loamy</option>
+          </select>
         </div>
-    </body>
+
+        <div class="form-group">
+          <label for="temperature">Temperature Range:</label>
+          <input
+            type="text"
+            id="temperature"
+            name="temperature"
+            placeholder="e.g. 20-30°C"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Area/Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Enter your location"
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
 
 </html>

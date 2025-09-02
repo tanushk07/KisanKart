@@ -1,8 +1,7 @@
-
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const path = require("path");
 const hbs = require("hbs");
 const users = require("./models/kisan");
@@ -10,14 +9,14 @@ const mongoose = require("mongoose");
 const products = require("./models/products");
 const seller = require("./models/seller");
 
-const { GoogleGenerativeAI } = require('@google/generative-ai');
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-
 require("dotenv").config();
+
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const passport = require("passport");
 app.use(
   require("express-session")({
-    secret: "keyboard dog",
+    secret: process.env.SESSION_SECRET || "keyboard dog",
     resave: true,
     saveUninitialized: true,
   })
@@ -31,11 +30,10 @@ require("./authentication/passport");
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 app.set("view engine", "hbs");
 app.use(
   require("express-session")({
-    secret: "keyboard dog",
+    secret: process.env.SESSION_SECRET || "keyboard dog",
     resave: true,
     saveUninitialized: true,
     cookie: {
@@ -56,14 +54,12 @@ app.use(
 
 const homerouter = require("./routes/home");
 
-
 const krishiRouter = require("./routes/krishi");
 
 app.get("/user/login", (req, res, next) => {
   if (req.user) return res.redirect("/");
   res.render("login");
 });
-app.use(express.static(__dirname));
 app.post(
   "/user/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
@@ -121,6 +117,9 @@ app.use("/", homerouter);
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
 app.use("/krishi", krishiRouter);
+
+// Serve static files after routes are defined
+app.use(express.static(path.join(__dirname, "public")));
 
 /*app.get("/", (req, res) => {
   const { name } = req.query;
@@ -191,8 +190,8 @@ app.post("/seller", async (req, res) => {
   });
   req.user.isseller = true;
 });
-mongoose.connect("mongodb://127.0.0.1:27017/KisanCart").then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   app.listen(PORT, () => {
-    console.log(`https ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 });
