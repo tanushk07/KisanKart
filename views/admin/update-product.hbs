@@ -151,236 +151,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+    />
 
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
     <title>Document</title>
     <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-      }
+      function googleTranslateElementInit() { new
+      google.translate.TranslateElement({ pageLanguage: 'en' },
+      'google_translate_element'); }
     </script>
-    <script type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </head>
   <style>
-    * {
-      font-family: monospace;
-      margin: 0px;
-      padding: 0px;
-    }
-
-    a {
-      font-size: 1.6rem;
-    }
-
-    body {
-      display: flex;
-      margin: 0px;
-      padding: 0px;
-      background-image: url(https://i.imghippo.com/files/gTq3d1715281830.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      overflow: hidden;
-    }
-
-    #sidebar {
-      grid-area: sidebar;
-      height: 100%;
-      background-color: #263043;
-      overflow-y: auto;
-      transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      width: 15vw;
-      padding-top: 3vh;
-      line-height: 2;
-      box-sizing: border-box;
-    }
-
-    .sidebar-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 30px 30px 30px;
-      margin-bottom: 30px;
-    }
-
-    .sidebar-title>span {
-      display: none;
-    }
-
-    .sidebar-brand {
-      margin-top: 15px;
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .sidebar-list {
-      padding: 0;
-      margin-top: 15px;
-      list-style-type: none;
-    }
-
-    .sidebar-list-item {
-      padding: 20px 20px 20px 20px;
-      font-size: 18px;
-    }
-
-    .sidebar-list-item:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-    }
-
-    .sidebar-list-item>a {
-      text-decoration: none;
-      color: #9e9ea4;
-    }
-
-    .sidebar-responsive {
-      display: inline !important;
-      position: absolute;
-      /*
-      the z-index of the ApexCharts is 11
-      we want the z-index of the sidebar higher so that
-      the charts are not showing over the sidebar 
-      on small screens
-    */
-      z-index: 12 !important;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: 260px 1fr 1fr 1fr;
-      grid-template-rows: 0.2fr 3fr;
-      grid-template-areas:
-        'sidebar header header header'
-        'sidebar main main main';
-      height: 100vh;
-    }
-
-    .cartquantity {
-      border: 10px solid black;
-    }
-
-    .formdiv {
-      width: 90%;
-      height: 85%;
-      padding: 5px;
-      display: flex;
-      flex-direction: row;
-      padding-left: 20px;
-      justify-content: space-evenly;
-    }
-
-    .leftformdiv {
-      width: 100%;
-      border-top: 5px solid rgba(100, 255, 107, 255);
-      border-bottom: 5px solid rgba(100, 255, 107, 255);
-      border-left: 5px solid rgba(100, 255, 107, 255);
-      border-radius: 50px;
-      padding: 2vw;
-      font-size: 1.5rem;
-      font-weight: bold;
-      line-height: 2.2;
-    }
-
-    input {
-      width: 65%;
-      height: 4.9vh;
-      border-radius: 10px;
-      text-indent: 10px;
-    }
-
-    .sub {
-      width: 10vw;
-      height: 7vh;
-      font-weight: bolder;
-      background-color: white;
-      border-radius: 15px;
-      border: solid 2px;
-      margin-top: 8vh;
-      position: relative;
-      left: 35vw;
-      bottom: 9.5vh;
-      font-size: 1.2rem;
-      font-family: 'Montserrat';
-    }
-
-    .sub:hover {
-      background-color: rgba(80, 255, 107, 255);
-      cursor: pointer;
-
-    }
-
-    .d {
-      height: 10vh;
-    }
-
-    h1 {
-      margin: 4vh auto 3vh 3vw;
-      font-size: 3.1rem;
-      font-family: 'Montserrat';
-    }
-
-    h2 {
-      font-weight: bolder;
-      font-size: 2.5rem;
-      margin-top: -3vh;
-    }
-
-    .maindiv {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-
-    }
-
-    .rightformdiv {
-      display: flex;
-      align-items: center;
-    }
-
-    img {
-      height: 20vw;
-      width: 20vw;
-      border: solid 3px;
-      border-radius: 50%;
-    }
+    .update-form-container { background-color: white; border-radius: 15px;
+    padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid
+    #e9ecef; margin: 20px; } .update-form-header { text-align: center; color:
+    #333; margin-bottom: 30px; font-size: 28px; font-weight: 700; }
+    .update-form-content { display: flex; gap: 30px; align-items: flex-start; }
+    .form-section { flex: 1; } .form-subtitle { color: #666; margin-bottom:
+    20px; font-size: 16px; font-weight: 500; } .form-group { margin-bottom:
+    20px; } .form-label { display: block; margin-bottom: 8px; font-weight: 600;
+    color: #333; font-size: 14px; } .form-input { width: 100%; padding: 12px
+    15px; border: 1px solid #e9ecef; border-radius: 8px; background-color:
+    #f8f9fa; font-size: 16px; transition: all 0.3s ease; box-sizing: border-box;
+    } .form-input:focus { outline: none; border-color: #4caf50;
+    background-color: white; box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1); }
+    .form-textarea { width: 100%; padding: 12px 15px; border: 1px solid #e9ecef;
+    border-radius: 8px; background-color: #f8f9fa; font-size: 16px; transition:
+    all 0.3s ease; box-sizing: border-box; min-height: 100px; resize: vertical;
+    font-family: inherit; } .form-textarea:focus { outline: none; border-color:
+    #4caf50; background-color: white; box-shadow: 0 0 0 3px rgba(76, 175, 80,
+    0.1); } .update-button { padding: 12px 24px; background-color: #4caf50;
+    color: white; border: none; border-radius: 8px; font-size: 16px;
+    font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0
+    2px 4px rgba(76, 175, 80, 0.3); margin-top: 20px; } .update-button:hover {
+    background-color: #45a049; transform: translateY(-2px); box-shadow: 0 4px
+    8px rgba(76, 175, 80, 0.4); } .image-preview-section { flex: 0 0 300px;
+    text-align: center; } .image-preview { width: 100%; height: 300px;
+    object-fit: cover; border-radius: 15px; border: 1px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); } .image-preview-label {
+    margin-top: 15px; font-weight: 600; color: #333; font-size: 14px; } @media
+    screen and (max-width: 768px) { .update-form-content { flex-direction:
+    column; } .image-preview-section { flex: none; } }
   </style>
 
   <body>
-    {{>sidebar cartQuantity=cartQuantity}}
+    <div class="grid-container">
+      <aside id="sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="/admin">
+              <span class="material-icons-outlined">dashboard</span>
+              DASHBOARD
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/admin/addproduct">
+              <span class="material-icons-outlined">add_circle</span>
+              ADD PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/admin/products/all">
+              <span class="material-icons-outlined">inventory_2</span>
+              SHOW PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item active">
+            <a href="#">
+              <span class="material-icons-outlined">edit</span>
+              UPDATE PRODUCT
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">settings</span>
+              SETTINGS
+            </a>
+          </li>
+          <li>
+            <div
+              style="margin-left: 20px; margin-top: 40px; font-weight: 600;"
+            >Socials</div>
+            <div class="platforms">
+              <div class="insta">
+                <a href=""><i
+                    class="fa-brands fa-instagram"
+                    style="color: #e26060"
+                  ></i></a>
+              </div>
+              <div class="facebook">
+                <a href=""><i
+                    class="fa-brands fa-square-facebook"
+                    style="color: #0f72bd"
+                  ></i></a>
+              </div>
+              <div class="twitter">
+                <a href=""><i
+                    class="fa-brands fa-x-twitter"
+                    style="color: #333"
+                  ></i></a>
+              </div>
+              <div class="youtube">
+                <a href=""><i
+                    class="fa-brands fa-youtube"
+                    style="color: #ff0000;"
+                  ></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </aside>
 
-    <div class="maindiv">
-      <div class="heading">
-        <h1>UPDATE PRODUCT</h1>
-      </div>
-      <form action="/admin/products/updateproduct" method="post" style="width: 80vw;">
-        <div class="formdiv">
+      <main class="main-container">
+        <div class="update-form-container">
+          <h1 class="update-form-header">UPDATE PRODUCT</h1>
 
-          <div class="leftformdiv">
+          <form action="/admin/products/updateproduct" method="post">
+            <div class="update-form-content">
+              <div class="form-section">
+                <div class="form-subtitle">Update product details below</div>
 
-            <h2>Add product details here </h2>
-            Image Url: <br><input type="text" name="imageUrl" value={{product.imageUrl}}><br>
-            Name: <br><input type="text" name="name" value={{product.name}}></input> <br>
-            Category: <br><input type="text" name="category" value={{product.category}}></input> <br>
-            Description: <br><input type="text" name="description" value={{product.description}}></input> <br>
-            Price: <br><input type="text" name="price" value={{product.price}}></input> <br>
-            Seller: <br><input type="text" name="seller" value={{product.seller}}></input> <br>
-            <input type="hidden" name="id" value={{product._id}}></input>
-            {{!-- {{>reviewSection product=product}} --}}
-            <button class="sub" type="submit">UPDATE</button>
-          </div>
-          <div class="rightformdiv">
-            <div class="innerdiv"><img src={{product.imageUrl}}></img></div>
-          </div>
-      </form>
+                <div class="form-group">
+                  <label class="form-label" for="imageUrl">Image URL</label>
+                  <input
+                    type="text"
+                    id="imageUrl"
+                    name="imageUrl"
+                    value="{{product.imageUrl}}"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="name">Product Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="{{product.name}}"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="category">Category</label>
+                  <input
+                    type="text"
+                    id="category"
+                    name="category"
+                    value="{{product.category}}"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="form-label"
+                    for="description"
+                  >Description</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    class="form-textarea"
+                    rows="4"
+                  >{{product.description}}</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="price">Price</label>
+                  <input
+                    type="text"
+                    id="price"
+                    name="price"
+                    value="{{product.price}}"
+                    class="form-input"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="seller">Seller</label>
+                  <input
+                    type="text"
+                    id="seller"
+                    name="seller"
+                    value="{{product.seller}}"
+                    class="form-input"
+                  />
+                </div>
+
+                <input type="hidden" name="id" value="{{product._id}}" />
+
+                <button type="submit" class="update-button">UPDATE PRODUCT</button>
+              </div>
+
+              <div class="image-preview-section">
+                <img
+                  src="{{product.imageUrl}}"
+                  alt="Product Preview"
+                  class="image-preview"
+                />
+                <div class="image-preview-label">Product Preview</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </main>
     </div>
-
   </body>
 
 </html>

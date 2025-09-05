@@ -190,8 +190,14 @@ app.post("/seller", async (req, res) => {
   });
   req.user.isseller = true;
 });
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/KisanCart")
+  .then(() => {
+    console.log("Connected to MongoDB");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
   });
-});

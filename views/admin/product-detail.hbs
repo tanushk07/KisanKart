@@ -1,188 +1,206 @@
-<html lang='en'>
+<html lang="en">
 
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css' />
-    <link rel='preconnect' href='https://fonts.googleapis.com' />
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'
-      rel='stylesheet' />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet' />
-    <link rel="stylesheet" href="../../public/sidebar.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
-      integrity='sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=='
-      crossorigin='anonymous' referrerpolicy='no-referrer' />
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
     <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-      }
+      function googleTranslateElementInit() { new
+      google.translate.TranslateElement({ pageLanguage: 'en' },
+      'google_translate_element'); }
     </script>
-    <script type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
     <style>
-      body {
-        display: flex;
-        margin: 0px;
-        padding: 0px;
-        background-image: url(https://i.imghippo.com/files/gTq3d1715281830.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      #sidebar {
-        width: 260px;
-        font-family: 'Montserrat', sans-serif;
-      }
-
-      h1 {
-        font-family: 'Montserrat';
-        text-align: center;
-        margin-top: 3.5%;
-        margin-bottom: 3%;
-        font-size: 43px;
-      }
-
-      .main {
-        display:
-          flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 80%
-      }
-
-      img {
-        height: 20vw;
-        width: 20vw;
-        border: solid 3px;
-        border-radius: 50%;
-        margin-right: 30px;
-        position: relative;
-        top: -5vh;
-      }
-
-      .subDetails {
-        line-height: 2;
-        font-weight: bolder;
-        font-size: 1.6em;
-        font-family: 'Roboto Slab';
-        width: 100%;
-        overflow-wrap:
-          break-word;
-      }
-
-      .button-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        margin-top: 5vh;
-        padding: 2vh 3vw;
-      }
-
-      .button {
-        height: 8vh;
-        width: 20vw;
-        font-size: 1.3rem;
-        font-weight: bold;
-        border-radius: 10px;
-        color: black;
-        background-color: white;
-      }
-
-      .button:hover {
-        font-size: 1.6rem;
-        color: black;
-        background-color:
-          lightgreen;
-        transition: 200ms;
-      }
-
-      a {
-        text-decoration: none;
-        color: black
-      }
-
-      body {
-        margin: 0px;
-        padding: 0px;
-        background-image:
-          url(https://i.imghippo.com/files/gTq3d1715281830.jpg);
-        background-repeat:
-          no-repeat;
-        background-size: cover;
-      }
-
-      .right {
-        margin-top: 5vh;
-        width: 50vw;
-      }
-
-      .centerpage {
-        display: flex;
-        margin-left: 2.5vw;
-      }
+      .product-detail-container { background-color: white; border-radius: 15px;
+      padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid
+      #e9ecef; margin: 20px; } .product-detail-header { text-align: center;
+      color: #333; margin-bottom: 30px; font-size: 28px; font-weight: 700; }
+      .product-detail-main { display: flex; align-items: flex-start; gap: 30px;
+      } .product-image-container { flex: 0 0 300px; } .product-image { width:
+      100%; height: 300px; object-fit: cover; border-radius: 15px; border: 1px
+      solid #e9ecef; } .product-info { flex: 1; } .product-detail-item {
+      margin-bottom: 20px; padding: 15px; background-color: #f8f9fa;
+      border-radius: 8px; border: 1px solid #e9ecef; } .product-detail-label {
+      font-weight: 600; color: #333; margin-bottom: 5px; font-size: 14px;
+      text-transform: uppercase; letter-spacing: 0.5px; } .product-detail-value
+      { color: #666; font-size: 16px; line-height: 1.5; } .button-container {
+      display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
+      .detail-button { padding: 12px 24px; border: none; border-radius: 8px;
+      font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s
+      ease; text-decoration: none; display: inline-block; text-align: center; }
+      .update-button { background-color: #4caf50; color: white; box-shadow: 0
+      2px 4px rgba(76, 175, 80, 0.3); } .update-button:hover { background-color:
+      #45a049; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(76, 175,
+      80, 0.4); } .delete-button { background-color: #f44336; color: white;
+      box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3); } .delete-button:hover {
+      background-color: #d32f2f; transform: translateY(-2px); box-shadow: 0 4px
+      8px rgba(244, 67, 54, 0.4); } @media screen and (max-width: 768px) {
+      .product-detail-main { flex-direction: column; } .product-image-container
+      { flex: none; } .button-container { flex-direction: column; } }
     </style>
 
     <title>Document</title>
   </head>
 
   <body>
-    {{>sidebar}}
-    <div class='centerpage'>
+    <div class="grid-container">
+      <aside id="sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="/admin">
+              <span class="material-icons-outlined">dashboard</span>
+              DASHBOARD
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/admin/addproduct">
+              <span class="material-icons-outlined">add_circle</span>
+              ADD PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item active">
+            <a href="/admin/products/all">
+              <span class="material-icons-outlined">inventory_2</span>
+              SHOW PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">settings</span>
+              SETTINGS
+            </a>
+          </li>
+          <li>
+            <div
+              style="margin-left: 20px; margin-top: 40px; font-weight: 600;"
+            >Socials</div>
+            <div class="platforms">
+              <div class="insta">
+                <a href=""><i
+                    class="fa-brands fa-instagram"
+                    style="color: #e26060"
+                  ></i></a>
+              </div>
+              <div class="facebook">
+                <a href=""><i
+                    class="fa-brands fa-square-facebook"
+                    style="color: #0f72bd"
+                  ></i></a>
+              </div>
+              <div class="twitter">
+                <a href=""><i
+                    class="fa-brands fa-x-twitter"
+                    style="color: #333"
+                  ></i></a>
+              </div>
+              <div class="youtube">
+                <a href=""><i
+                    class="fa-brands fa-youtube"
+                    style="color: #ff0000;"
+                  ></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </aside>
 
-      <div class='content'>
-        <h1>PRODUCT DETAILS</h1><br />
+      <main class="main-container">
+        <div class="product-detail-container">
+          <h1 class="product-detail-header">PRODUCT DETAILS</h1>
 
-        <div class='main'>
-          <div class='left'>
-            <img height='' src={{product.imageUrl}} />
-          </div>
-          <div class='right'>
-            <div class='subDetails'>Name : {{product.name}} </div>
-            <div class='subDetails'>Description : {{product.description}}</div>
-            <div class='subDetails'>Price : {{product.price}}</div>
-            <div class='subDetails'>Seller : {{product.seller}}</div>
-            <div class='subDetails'>Date : {{product.date}}</div>
-            <div class='button-container'>
-              <a href='updateproduct/{{product._id}}'><button class='button'>Update</button></a>
-              <a href='deleteproduct/{{product._id}}'><button class='button'>Delete</button></a>
+          <div class="product-detail-main">
+            <div class="product-image-container">
+              <img
+                src="{{product.imageUrl}}"
+                alt="{{product.name}}"
+                class="product-image"
+              />
+            </div>
+
+            <div class="product-info">
+              <div class="product-detail-item">
+                <div class="product-detail-label">Name</div>
+                <div class="product-detail-value">{{product.name}}</div>
+              </div>
+
+              <div class="product-detail-item">
+                <div class="product-detail-label">Description</div>
+                <div class="product-detail-value">{{product.description}}</div>
+              </div>
+
+              <div class="product-detail-item">
+                <div class="product-detail-label">Price</div>
+                <div class="product-detail-value">₹ {{product.price}}</div>
+              </div>
+
+              <div class="product-detail-item">
+                <div class="product-detail-label">Seller</div>
+                <div class="product-detail-value">{{product.seller}}</div>
+              </div>
+
+              <div class="product-detail-item">
+                <div class="product-detail-label">Date Added</div>
+                <div class="product-detail-value">{{product.date}}</div>
+              </div>
+
+              <div class="button-container">
+                <a
+                  href="updateproduct/{{product._id}}"
+                  class="detail-button update-button"
+                >Update</a>
+                <a
+                  href="deleteproduct/{{product._id}}"
+                  class="detail-button delete-button"
+                >Delete</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"
+    ></script>
 
     <script>
-      // SIDEBAR TOGGLE
-
-      let sidebarOpen = false;
-      const sidebar = document.getElementById('sidebar');
-
-      function openSidebar() {
-        if (!sidebarOpen) {
-          sidebar.classList.add('sidebar-responsive');
-          sidebarOpen = true;
-        }
-      }
-
-      function closeSidebar() {
-        if (sidebarOpen) {
-          sidebar.classList.remove('sidebar-responsive');
-          sidebarOpen = false;
-        }
-      }
-
+      // SIDEBAR TOGGLE let sidebarOpen = false; const sidebar =
+      document.getElementById('sidebar'); function openSidebar() { if
+      (!sidebarOpen) { sidebar.classList.add('sidebar-responsive'); sidebarOpen
+      = true; } } function closeSidebar() { if (sidebarOpen) {
+      sidebar.classList.remove('sidebar-responsive'); sidebarOpen = false; } }
 
     </script>
   </body>

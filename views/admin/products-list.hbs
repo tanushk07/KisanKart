@@ -3,154 +3,134 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="../../public/totop.css" />
-    <link rel="stylesheet" href="../../public/endpage.css" />
-    <link rel="stylesheet" href="../../public/usernav.css">
-    <title>Document</title>
+    <title>Admin Products</title>
     <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-      }
+      function googleTranslateElementInit() { new
+      google.translate.TranslateElement({ pageLanguage: 'en' },
+      'google_translate_element'); }
     </script>
-    <script type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: 'Anek Devanagari',
-          sans-serif;
-      }
-
-      .product_card {
-        width: 300px;
-        height: 420px;
-        margin: 20px;
-        overflow: hidden;
-
-        white-space: nowrap;
-
-        img {
-          border-radius: 20px;
-          height: 250px;
-          width: 250px;
-          margin: 25px 25px 20px 25px;
-        }
-
-        background-color: #e9e7e760;
-        box-shadow: 2px 2px 4px gray;
-        border-radius: 20px;
-        display: inline-block;
-      }
-
-      .product_card:hover {
-        filter: drop-shadow(2px 2px 10px rgba(128, 128, 128, 0.188))
-      }
-
-      .pdescription {
-        text-overflow: ellipsis;
-        font-size: larger;
-        overflow: hidden;
-        height: 200px;
-        width: 250px;
-        margin:
-          0px 25px 25px 25px;
-        line-height: 24px;
-
-        h4 {
-          color: green;
-        }
-      }
-
-      #price {
-        font-weight: 600;
-      }
-
-      #pd {
-        color: gray;
-      }
-
-      #heading {
-        font-size: 44px;
-        margin-top: 30px;
-        margin-bottom: 25px;
-        text-align: center;
-        color: rgb(4, 95, 4);
-        font-weight: bold;
-      }
-
-      .product {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
-
-      h2 {
-        margin-top: 4px;
-      }
-    </style>
-
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
   </head>
 
   <body>
-    {{>navbar}}
-    <h1 id="heading">Admin Products List</h1>
+    <div class="grid-container">
+      <aside id="sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="/admin">
+              <span class="material-icons-outlined">dashboard</span>
+              DASHBOARD
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="/admin/addproduct">
+              <span class="material-icons-outlined">add_circle</span>
+              ADD PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item active">
+            <a href="/admin/products/all">
+              <span class="material-icons-outlined">inventory_2</span>
+              SHOW PRODUCTS
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#">
+              <span class="material-icons-outlined">settings</span>
+              SETTINGS
+            </a>
+          </li>
+          <li>
+            <div
+              style="margin-left: 20px; margin-top: 40px; font-weight: 600;"
+            >Socials</div>
+            <div class="platforms">
+              <div class="insta">
+                <a href=""><i
+                    class="fa-brands fa-instagram"
+                    style="color: #e26060"
+                  ></i></a>
+              </div>
+              <div class="facebook">
+                <a href=""><i
+                    class="fa-brands fa-square-facebook"
+                    style="color: #0f72bd"
+                  ></i></a>
+              </div>
+              <div class="twitter">
+                <a href=""><i
+                    class="fa-brands fa-x-twitter"
+                    style="color: #333"
+                  ></i></a>
+              </div>
+              <div class="youtube">
+                <a href=""><i
+                    class="fa-brands fa-youtube"
+                    style="color: #ff0000;"
+                  ></i></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </aside>
 
-    <div class="product">
-      {{#each products as |p|}}
-      <a href="{{p._id}}">
-        <div class="product_card" data-aos="fade-up">
-          <img src="{{p.imageUrl}}" data-aos="zoom-in" /><br />
-          <div class="pdescription">
-            <h2>
-              {{p.name}}
-            </h2>
-            <p id="pd"> {{p.description}}</p>
-            <span id="price">&#8377;
-              {{p.price}}
+      <main class="main-container">
+        <h1 id="heading">Admin Products List</h1>
 
-            </span><br />
-            <h4>40% OFF</h4>
-            {{!-- {{#if p.reviews}}
-            <h5>Reviews</h5>
-            <ul>
-              {{#each p.reviews as |r|}}
-              <li>{{r.details}}</li>
-              {{/each}}
-            </ul>
-            {{/if}} --}}
-            <h3><a href="{{p._id}}">GET Info</a></h3>
-          </div>
+        <div class="product">
+          {{#each products as |p|}}
+            <div class="product_card" data-aos="fade-up">
+              <img src="{{p.imageUrl}}" alt="{{p.name}}" data-aos="zoom-in" />
+              <div class="pdescription">
+                <h2>{{p.name}}</h2>
+                <p id="pd">{{p.description}}</p>
+                <span id="price">₹ {{p.price}}</span><br />
+                <h4>40% OFF</h4>
+                <h3><a href="{{p._id}}">GET Info</a></h3>
+              </div>
+            </div>
+          {{/each}}
         </div>
-      </a>
-      {{/each}}
-
+      </main>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
       integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-      AOS.init({ offset: 200, Duration: 1000 })
-
+      AOS.init({ offset: 200, Duration: 1000 }); // SIDEBAR TOGGLE let
+      sidebarOpen = false; const sidebar = document.getElementById('sidebar');
+      function openSidebar() { if (!sidebarOpen) {
+      sidebar.classList.add('sidebar-responsive'); sidebarOpen = true; } }
+      function closeSidebar() { if (sidebarOpen) {
+      sidebar.classList.remove('sidebar-responsive'); sidebarOpen = false; } }
     </script>
-
-    <a href="#" class="to-top">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-    <script src="/js/toTop.js"></script>
-
-    {{>endpage}}
   </body>
 
 </html>

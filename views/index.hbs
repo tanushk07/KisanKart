@@ -14,6 +14,7 @@
     <title>Kisan Kart</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/mediaqueries.css" />
+    <link rel="stylesheet" href="/css/krishikalyan.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="/endpage.css">
     <script type="text/javascript">
@@ -394,54 +395,11 @@
         padding: 5px 0px;
       }
 
-      .krishi {
-        font-family: 'Josefin sans', sans-serif;
-        background: linear-gradient(135deg, #000000, #222222, #444444, #343333);
-        color: white;
-        background-color: black;
-        height: 4vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        text-align: center;
-        font-weight: bolder;
-        font-size: 0.87rem;
-        font-weight: 500;
-
-          {
-            {
-            !-- transition: font-size 0.3s ease-in-out;
-            --
-          }
-        }
-      }
-
-      @keyframes slideLeftToRight {
-        0% {
-          transform: translateX(-180%);
-        }
-
-        100% {
-          transform: translateX(180%);
-          /* End off-screen to the right */
-        }
-      }
-
-      .k2 {
-        animation: slideLeftToRight 15s linear infinite;
-      }
     </style>
   </head>
 
   <body>
-    <a href="/krishi/crop">
-      <div class="krishi">
-        <div class="k2">🌾 <b>KrishiKalyan</b>: AI-powered crop assessment and irrigation insights for better farming.
-          🌱</div>
-      </div>
-    </a>
+    {{>krishikalyan}}
     <div class="navbar border">
       <a href="/">
         <div class="kklogo"></div>

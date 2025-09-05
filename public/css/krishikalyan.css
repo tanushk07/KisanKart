@@ -1,0 +1,35 @@
+/* KrishiKalyan Banner Styles */
+.krishi {
+  font-family: "Josefin sans", sans-serif;
+  background: linear-gradient(135deg, #000000, #222222, #444444, #343333);
+  color: white;
+  background-color: black;
+  height: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 0.87rem;
+  font-weight: 500;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-180%);
+  }
+  100% {
+    transform: translateX(180%);
+    /* End off-screen to the right */
+  }
+}
+
+.k2 {
+  animation: slideLeftToRight 15s linear infinite;
+}
+
