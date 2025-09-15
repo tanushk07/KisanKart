@@ -191,7 +191,7 @@ app.post("/seller", async (req, res) => {
   req.user.isseller = true;
 });
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/KisanCart")
+  .connect( "mongodb://localhost:27017/KisanCart")
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(PORT, () => {

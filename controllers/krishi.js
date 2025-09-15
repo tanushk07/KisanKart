@@ -1,19 +1,81 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
-module.exports.getForm = async(req,res)=>{
-    res.render("indexKrishi")
-}
-module.exports.getAssessment = async (req, res)=>{
+module.exports.getForm = async (req, res) => {
+  res.render("indexKrishi");
+};
+module.exports.getAssessment = async (req, res) => {
+  const { soil, location, temperature } = req.body;
 
-    const { soil, location, temperature } = req.body;
+  async function run() {
+    const preferredModels = [
+      "gemini-1.5-flash",
+      "gemini-1.5-flash-8b",
+      "gemini-1.5-pro",
+    ];
 
-    async function run() {
-        const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    async function generateWithFallback(
+      contents,
+      options = {},
+      maxRetries = 3
+    ) {
+      let lastError;
+      for (const modelName of preferredModels) {
+        const model = genAI.getGenerativeModel({ model: modelName });
+        let delayMs = 500;
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+          try {
+            const payload = { contents };
+            if (options && options.responseMimeType) {
+              payload.generationConfig = {
+                responseMimeType: options.responseMimeType,
+              };
+            }
+            return await model.generateContent(payload);
+          } catch (err) {
+            const status = err && err.status;
+            if (status === 429 || status === 500 || status === 503) {
+              lastError = err;
+              await new Promise((r) => setTimeout(r, delayMs));
+              delayMs = Math.min(delayMs * 2, 8000);
+              continue;
+            }
+            lastError = err;
+            break;
+          }
+        }
+      }
+      throw lastError;
+    }
 
-        const partsCropSuitability = [
-            {
-                text: `On the basis of the given features:
+    function parseJsonFromText(text) {
+      try {
+        return JSON.parse(text);
+      } catch (_) {
+        // Try extracting from fenced code block
+        const fenceMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+        if (fenceMatch && fenceMatch[1]) {
+          const inner = fenceMatch[1].trim();
+          try {
+            return JSON.parse(inner);
+          } catch (_) {}
+        }
+        // Try substring between first { and last }
+        const start = text.indexOf("{");
+        const end = text.lastIndexOf("}");
+        if (start !== -1 && end !== -1 && end > start) {
+          const candidate = text.substring(start, end + 1);
+          try {
+            return JSON.parse(candidate);
+          } catch (_) {}
+        }
+        throw new Error("Failed to parse JSON from model response");
+      }
+    }
+
+    const partsCropSuitability = [
+      {
+        text: `On the basis of the given features:
 
                 1. *Crop Suitability Assessment*
                 
@@ -37,18 +99,21 @@ module.exports.getAssessment = async (req, res)=>{
                 "     
                 Ensure that there are no errors in the response JSON Object and try to make it as parsable as possible.
                 There should be no extraneous punctuations attached to the JSON Object. Don't respond with unexpected tokens before and after the json format to avoid any syntactical errors, do not give bullet points in the features under crop_name.
-                `
-            }
-        ];
+                `,
+      },
+    ];
 
-        const resultCropSuitability = await model.generateContent({
-            contents: [{ role: 'user', parts: partsCropSuitability }]
-        });
+    const resultCropSuitability = await generateWithFallback(
+      [{ role: "user", parts: partsCropSuitability }],
+      { responseMimeType: "application/json" }
+    );
 
-        let cropSuitabilityData = JSON.parse(resultCropSuitability.response.text());
+    let cropSuitabilityData = parseJsonFromText(
+      resultCropSuitability.response.text()
+    );
 
-        const irrigationRequests = cropSuitabilityData.crops.map(crop => ({
-            text: `On the basis of the given features:
+    const irrigationRequests = cropSuitabilityData.crops.map((crop) => ({
+      text: `On the basis of the given features:
 
             1. *Irrigation Schedule Recommendations*
             
@@ -70,18 +135,26 @@ module.exports.getAssessment = async (req, res)=>{
             "     
             Ensure that there are no errors in the response JSON Object and try to make it as parsable as possible.
             There should be no extraneous punctuations attached to the JSON Object. Don't respond with unexpected tokens before and after the json format to avoid any syntactical errors.
-            `
-        }));
+            `,
+    }));
 
-        const irrigationResponses = await Promise.all(irrigationRequests.map(partsIrrigation => model.generateContent({
-            contents: [{ role: 'user', parts: [partsIrrigation] }]
-        })));
+    const irrigationResponses = [];
+    for (const partsIrrigation of irrigationRequests) {
+      const resp = await generateWithFallback(
+        [{ role: "user", parts: [partsIrrigation] }],
+        { responseMimeType: "application/json" }
+      );
+      irrigationResponses.push(resp);
+      await new Promise((r) => setTimeout(r, 200));
+    }
 
-        let irrigationData = irrigationResponses.map(response => JSON.parse(response.response.text()));
+    let irrigationData = irrigationResponses.map((response) =>
+      parseJsonFromText(response.response.text())
+    );
 
-        const partsResourceManagement = [
-            {
-                text: `Provide educational resources and best practices on:
+    const partsResourceManagement = [
+      {
+        text: `Provide educational resources and best practices on:
                 
                 - Efficient irrigation methods (e.g., drip irrigation, rainwater harvesting).
                 - Fertilizer application techniques (e.g., soil testing, balanced fertilization).
@@ -101,27 +174,32 @@ module.exports.getAssessment = async (req, res)=>{
                 "     
                 Ensure that there are no errors in the response JSON Object and try to make it as parsable as possible.
                 There should be no extraneous punctuations attached to the JSON Object. Don't respond with unexpected tokens before and after the json format to avoid any syntactical errors.
-                `
-            }
-        ];
+                `,
+      },
+    ];
 
-        const resultResourceManagement = await model.generateContent({
-            contents: [{ role: 'user', parts: partsResourceManagement }]
-        });
+    const resultResourceManagement = await generateWithFallback(
+      [{ role: "user", parts: partsResourceManagement }],
+      { responseMimeType: "application/json" }
+    );
 
-        let resourceManagementData = JSON.parse(resultResourceManagement.response.text());
+    let resourceManagementData = parseJsonFromText(
+      resultResourceManagement.response.text()
+    );
 
-        const irrigationDataWithCropNames = cropSuitabilityData.crops.map((crop, index) => ({
-            crop_name: crop.crop_name,
-            irrigation_schedule: irrigationData[index].irrigation_schedule
-        }));
+    const irrigationDataWithCropNames = cropSuitabilityData.crops.map(
+      (crop, index) => ({
+        crop_name: crop.crop_name,
+        irrigation_schedule: irrigationData[index].irrigation_schedule,
+      })
+    );
 
-        res.render('data', {
-            cropData: cropSuitabilityData,
-            irrigationData: irrigationDataWithCropNames,
-            resourceManagementData: resourceManagementData
-        });
-    }
+    res.render("data", {
+      cropData: cropSuitabilityData,
+      irrigationData: irrigationDataWithCropNames,
+      resourceManagementData: resourceManagementData,
+    });
+  }
 
-    run();
-}
+  run();
+};
