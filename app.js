@@ -8,29 +8,10 @@ const users = require("./models/kisan");
 const mongoose = require("mongoose");
 const products = require("./models/products");
 const seller = require("./models/seller");
-
 require("dotenv").config();
-
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const passport = require("passport");
-app.use(
-  require("express-session")({
-    secret: process.env.SESSION_SECRET || "keyboard dog",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(passport.initialize());
-const bcrypt = require("bcrypt");
-app.use(passport.session());
-require("./authentication/passport");
-
-//app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.set("view engine", "hbs");
 app.use(
   require("express-session")({
     secret: process.env.SESSION_SECRET || "keyboard dog",
@@ -41,17 +22,20 @@ app.use(
     },
   })
 );
-
-
-
-const homerouter = require("./routes/home");
-
-const krishiRouter = require("./routes/krishi");
+app.use(passport.initialize());
+const bcrypt = require("bcrypt");
+app.use(passport.session());
+require("./authentication/passport");
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "hbs");
+hbs.registerPartials(__dirname + "/views/partials");
 
 app.get("/user/login", (req, res, next) => {
   if (req.user) return res.redirect("/");
   res.render("login");
 });
+
 app.post(
   "/user/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
@@ -60,8 +44,6 @@ app.post(
     res.redirect("/user/products/all");
   }
 );
-
-
 
 app.get(
   "/auth/google",
@@ -75,28 +57,21 @@ app.get(
     res.redirect("/user/products/all");
   }
 );
-app.get("/product/search/:category", async (req, res) => {
-  let cat = req.params.category;
-  const prod = await products.find({
-    category: cat,
-  });
-  res.render("users/products-list", { products: prod });
-});
+
 app.get("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) {
       return next(err);
     }
-    console.log("you have been logged Out successfully");
+    console.log("You have been Logged out successfully");
     res.redirect("/");
   });
 });
 
-
-
 const userRouter = require("./routes/user");
-hbs.registerPartials(__dirname + "/views/partials");
 const adminRouter = require("./routes/admin");
+const homerouter = require("./routes/home");
+const krishiRouter = require("./routes/krishi");
 
 app.use("/", homerouter);
 app.use("/user", userRouter);
@@ -106,12 +81,8 @@ app.use("/krishi", krishiRouter);
 // Serve static files after routes are defined
 app.use(express.static(path.join(__dirname, "public")));
 
-
-
 app.post("/register", async (req, res) => {
   const { password, username, phone, Email, city, country, address } = req.body;
-  let ar = [username, password, phone, Email, city, country, address];
-  // res.send(pswd);
   await users.create({
     username,
     password,
@@ -121,12 +92,16 @@ app.post("/register", async (req, res) => {
     country,
     address,
   });
-  let f = await users.find({});
-  console.log(f);
   res.redirect("/");
 });
 
-
+app.get("/product/search/:category", async (req, res) => {
+  let cat = req.params.category;
+  const prod = await products.find({
+    category: cat,
+  });
+  res.render("users/products-list", { products: prod });
+});
 
 app.post("/search/product", async (req, res) => {
   const { search } = req.body;
@@ -139,9 +114,11 @@ app.post("/search/product", async (req, res) => {
   });
   res.render("users/products-list", { products: prod, user: req.user });
 });
+
 app.get("/seller", async (req, res) => {
   res.render("./admin/Joinasseller");
 });
+
 app.post("/seller", async (req, res) => {
   const { Location, bank, AC_no, bank_branch } = req.body;
   const sellers = await seller.create({
@@ -152,6 +129,7 @@ app.post("/seller", async (req, res) => {
   });
   req.user.isseller = true;
 });
+
 mongoose
   .connect( "mongodb://localhost:27017/KisanCart")
   .then(() => {
