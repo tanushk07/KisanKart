@@ -6,7 +6,6 @@ module.exports.sortCategory = (products) => {
     categoryProducts.push(item)
     data[category] = categoryProducts
   })
-  console.log(data)
   return data
 }
 
