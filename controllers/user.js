@@ -10,7 +10,6 @@ module.exports.getProductsAll = async (req, res, next) => {
       products: all_products,
       user: req.user,
     });
-    console.log(req.user);
   } catch (err) {
     next(err);
   }
@@ -22,7 +21,6 @@ module.exports.getProductById = async (req, res, next) => {
     let product = await products.findOne({
       _id: new mongoose.Types.ObjectId(id),
     });
-    // console.log(product)
     res.render("users/product-details", {
       product: product,
       user: req.user,
@@ -55,7 +53,7 @@ module.exports.getAddtoCartById = async (req, res, next) => {
     cart_obj.cartitems.forEach((item) => {
       if (item.prodid == pid) {
         item.quantity += 1;
-        cart_obj.save();
+        await cart_obj.save();
         c = 1;
       }
     });
@@ -67,8 +65,7 @@ module.exports.getAddtoCartById = async (req, res, next) => {
         prodid: pid,
         quantity: 1,
       });
-      cart_obj.save();
-      console.log(cart_obj);
+      await cart_obj.save();
       res.redirect("/user/cart/show");
     }
   } catch (err) {
