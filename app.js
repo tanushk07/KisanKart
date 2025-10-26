@@ -42,15 +42,7 @@ app.use(
   })
 );
 
-// app.use(async (req, res, next) => {
-//   try {
-//     let user = await users.findOne({ name: 'tanushk nirmal' })
-//     req.user = user
-//     next()
-//   } catch (err) {
-//     next(err)
-//   }
-// })
+
 
 const homerouter = require("./routes/home");
 
@@ -69,12 +61,7 @@ app.post(
   }
 );
 
-// app.get('/logout',function(req,res,next){
-//   req.logout(function(err){
-//     if(err){return next(err)}
-//     res.redirect('/auth/google')
-//   })
-// })
+
 
 app.get(
   "/auth/google",
@@ -105,9 +92,7 @@ app.get("/logout", function (req, res, next) {
   });
 });
 
-// app.get('/google/logout',(req,res)=>{
 
-// })
 
 const userRouter = require("./routes/user");
 hbs.registerPartials(__dirname + "/views/partials");
@@ -121,10 +106,7 @@ app.use("/krishi", krishiRouter);
 // Serve static files after routes are defined
 app.use(express.static(path.join(__dirname, "public")));
 
-/*app.get("/", (req, res) => {
-  const { name } = req.query;
-  res.send(`Hey mofo ${name}`);
-});*/
+
 
 app.post("/register", async (req, res) => {
   const { password, username, phone, Email, city, country, address } = req.body;
@@ -143,29 +125,9 @@ app.post("/register", async (req, res) => {
   console.log(f);
   res.redirect("/");
 });
-/*app.get("/abt", (req, res) => {
-  res.send("Hey mofo");
-}); */
 
-/*app.post("/login", async (req, res) => {
-  const { password, email } = req.body;
-  try {
-    let user = await users.findOne({ Email: email });
-    if (!user) {
-      return res.send("/?error=User not found");
-    }
-    if (await bcrypt.compare(password, user.pswd)) {
-      res.send("logged in");
-    } else {
-      res.send("wrong Details Entered");
-    }
-    console.log("email:", email);
-    console.log("Password:", password);
-    console.log("User Password (Hashed):", user.pswd);
-  } catch (e) {
-    console.log(e);
-  }
-});*/
+
+
 app.post("/search/product", async (req, res) => {
   const { search } = req.body;
   if (!search) {
